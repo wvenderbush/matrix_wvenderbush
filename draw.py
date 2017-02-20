@@ -3,15 +3,32 @@ from matrix import *
 
 
 def draw_lines( matrix, screen, color ):
-    pass
+    count = 0;
+    while (count < len(matrix) - 1):
+        p1 = matrix[count]
+        p2 = matrix[count + 1]
+        draw_line(p1[0], p1[1], p2[0], p2[1], screen, color)
+        count += 2
 
-def add_edge( matrix, x0, y0, z0, x1, y1, z1 ):
-    pass
 
 def add_point( matrix, x, y, z=0 ):
-    pass
+    pointlen = len(matrix[0])
+    for point in matrix:
+        if (point[pointlen - 1] == 0):
+            point[0] = x
+            point[1] = y
+            point[2] = z
+            point[3] = 1.0
+            return matrix
+    adlist = [x, y, z, 1.0]
+    matrix.append(adlist)
+    return matrix
 
 
+def add_edge( matrix, x0, y0, z0, x1, y1, z1 ):
+    add_point(matrix, x0, y0, z0)
+    add_point(matrix, x1, y1, z1)
+    return matrix
 
 
 def draw_line( x0, y0, x1, y1, screen, color ):
@@ -97,3 +114,6 @@ def draw_line( x0, y0, x1, y1, screen, color ):
         #end octant 7
     #end octants 2 and 7
 #end draw_line
+
+
+

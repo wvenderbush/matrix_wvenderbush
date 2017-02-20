@@ -31,8 +31,19 @@ def scalar_mult( matrix, s ):
 
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
-	pass
-
+	rows1 = len(m1)
+	cols1 = len(m1[0])
+	rows2 = len(m2)
+	cols2 = len(m2[0])
+	if (cols2 != rows1 or rows2 != cols1):
+		return []
+	else:
+		retrix = [[0 for row in range(cols2)] for col in range(rows1)]
+		for i in range(rows1):
+			for j in range(cols2):
+				for k in range(cols1):
+					retrix[i][j] += m1[i][k] * m2[k][j]
+	return retrix
 
 
 
@@ -43,15 +54,4 @@ def new_matrix(rows = 4, cols = 4):
 		for r in range( rows ):
 			m[c].append( 0 )
 	return m
-
-
-x = new_matrix()
-print x
-print_matrix(x)
-ident(x)
-print("\n")
-print_matrix(x)
-scalar_mult(x, 2)
-print("\n")
-print_matrix(x)
 
