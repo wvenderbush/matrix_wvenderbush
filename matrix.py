@@ -18,7 +18,7 @@ def ident( matrix ):
 		while (incount < len(val)):
 			val[incount] = 0
 			incount += 1
-		val[count] = 1
+		val[count] = 1.0 
 		count += 1
 
 
@@ -38,7 +38,7 @@ def matrix_mult( m1, m2 ):
 	if (cols2 != rows1 or rows2 != cols1):
 		return []
 	else:
-		retrix = [[0 for row in range(cols2)] for col in range(rows1)]
+		retrix = [[0.0 for row in range(cols2)] for col in range(rows1)]
 		for i in range(rows1):
 			for j in range(cols2):
 				for k in range(cols1):

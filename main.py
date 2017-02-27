@@ -25,8 +25,8 @@ print_matrix(idmatrix)
 #Matrix Multiplication
 print "\nMatrix Multiplication\n"
 w, h = 4, 4;
-m1 = [[random.randrange(0, 10) for x in range(w)] for y in range(h)] 
-m2 = [[random.randrange(0, 10) for x in range(w)] for y in range(h)] 
+m1 = [[random.randrange(0, 10)*(1.0) for x in range(w)] for y in range(h)] 
+m2 = [[random.randrange(0, 10)*(1.0) for x in range(w)] for y in range(h)] 
 print "M1"
 print_matrix(m1)
 print "\nM2"
