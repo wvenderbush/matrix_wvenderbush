@@ -57,5 +57,8 @@ add_edge( matrix, 125, 500, 0, 375, 0, 0)
 add_edge( matrix, 0, 375, 0, 500, 125, 0)
 add_edge( matrix, 0, 125, 0, 500, 375, 0)
 
+print "\n\n\n"
+print_matrix(matrix)
+
 draw_lines( matrix, screen, color )
 display(screen)

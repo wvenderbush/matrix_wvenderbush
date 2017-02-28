@@ -1,22 +1,48 @@
 import math
 
 
-def print_matrix( matrix ):
+def print_matrix( matrix ): #this acts wonky so that it displays the point matrix correctly :(
+	row1 = []
+	row2 = []
+	row3 = []
+	row4 = []
+	row1.append(str("| "))
+	row2.append(str("| "))
+	row3.append(str("| "))
+	row4.append(str("| "))
+
 	for row in matrix:
-		group = []
-		group.append("|")
-		for val in row:
-			group.append(str(val));
-			group.append(" ")
-		group[-1] = "|"
-		print("".join(group))
+		row1.append(str(row[0]) + " ")
+		row2.append(str(row[1]) + " ")
+		row3.append(str(row[2]) + " ")
+		row4.append(str(row[3]) + " ")
+
+	row1.append(str("|"))
+	row2.append(str("|"))
+	row3.append(str("|"))
+	row4.append(str("|"))
+
+	print("".join(row1))
+	print("".join(row2))
+	print("".join(row3))
+	print("".join(row4))
+
+
+	# for row in matrix:
+	# 	group = []
+	# 	group.append("|")
+	# 	for val in row:
+	# 		group.append(str(val));
+	# 		group.append(" ")
+	# 	group[-1] = "|"
+	# 	print("".join(group))
 
 def ident( matrix ):
 	count = 0
 	for val in matrix:
 		incount = 0;
 		while (incount < len(val)):
-			val[incount] = 0
+			val[incount] = 0.0
 			incount += 1
 		val[count] = 1.0 
 		count += 1
@@ -26,7 +52,7 @@ def scalar_mult( matrix, s ):
 	for val in matrix:
 		incount = 0;
 		while (incount < len(val)):
-			val[incount] = val[incount] * s
+			val[incount] = val[incount] * s * 1.0
 			incount += 1
 
 #m1 * m2 -> m2

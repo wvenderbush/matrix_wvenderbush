@@ -11,16 +11,16 @@ def draw_lines( matrix, screen, color ):
         count += 2
 
 
-def add_point( matrix, x, y, z=0 ):
+def add_point( matrix, x, y, z=0.0 ):
     pointlen = len(matrix[0])
     for point in matrix:
         if (point[pointlen - 1] == 0):
-            point[0] = x
-            point[1] = y
-            point[2] = z
+            point[0] = x * 1.0
+            point[1] = y * 1.0
+            point[2] = z * 1.0
             point[3] = 1.0
             return matrix
-    adlist = [x, y, z, 1.0]
+    adlist = [x * 1.0, y * 1.0, z * 1.0, 1.0]
     matrix.append(adlist)
     return matrix
 
@@ -32,6 +32,10 @@ def add_edge( matrix, x0, y0, z0, x1, y1, z1 ):
 
 
 def draw_line( x0, y0, x1, y1, screen, color ):
+    x0 = int(x0)
+    y0 = int(y0)
+    x1 = int(x1)
+    y1 = int(y1)
 
     #swap points if going right -> left
     if x0 > x1:
